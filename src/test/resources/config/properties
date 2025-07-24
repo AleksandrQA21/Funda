@@ -1,0 +1,18 @@
+# Environment settings
+test.environment=dev
+base.url=https://dev-nd.fundaactive.com
+
+# Browser settings
+browser.type=chromium
+browser.headless=false
+browser.timeout=10000
+element.timeout=10000
+retry.count=3
+
+# Test data - recommended to use environment variables instead
+test.client.email=aleksandr.titovskoy+52@greenice.net
+test.client.password=1Q2w3e4r!
+test.admin.email=admin@fundaactive.com
+test.admin.password=Password1!
+autotest.parent.email=aleksandr.titovskoy+60@greenice.net
+autotest.parent.password=1Q2w3e4r!
