@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AdminSideBar extends BasePage{
-    private static final Logger logger = LoggerFactory.getLogger(AccountBookingsPage.class);
+    private static final Logger logger = LoggerFactory.getLogger(AdminSideBar.class);
 
     private static final String ORGANIZATIONS_TAB = "//span[contains(text(),'Organizations')]";
     private static final String ORGANIZATION_LIST_TAB = "//a[contains(@href, '/admin/organization/list')]//span[@class='menu-title' and " +
