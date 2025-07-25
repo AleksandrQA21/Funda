@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.ClientLoginPage;
 import pages.AdminDashboardPage;
+import pages.UserHeaderPage;
 
 import static utils.ScreenshotUtils.takeScreenshot;
 
@@ -27,24 +28,10 @@ import static utils.ScreenshotUtils.takeScreenshot;
 public class GrandTotalCalculationSteps {
 
     private Page page;
-    private GrandTotalCalculationSteps grandTotalCalculationSteps;
     private ClientLoginPage clientLoginPage;
+    private UserHeaderPage userHeaderPage;
 
-    // Removed @Before and @After annotations  
-    // Page lifecycle is now managed by TestHooks only
-    public void setUp() {
-        // This method can be called manually if needed
-        page = BrowserManager.getCurrentPage();
-        if (page == null) {
-            throw new RuntimeException("No page available - TestHooks should have created one");
-        }
-        clientLoginPage = new ClientLoginPage(page);
-    }
-
-    public void tearDown() {
-        // Page cleanup is handled by TestHooks only
-        // No action needed here
-    }
+    // Page lifecycle managed by TestHooks no need to use @Before\After annotation in steps class.
 
     /**
      * Initialize page objects using current page from BrowserManager
@@ -56,6 +43,8 @@ public class GrandTotalCalculationSteps {
                 throw new RuntimeException("No page available - browser not initialized");
             }
             clientLoginPage = new ClientLoginPage(page);
+            userHeaderPage = new UserHeaderPage(page);
+
         }
     }
 

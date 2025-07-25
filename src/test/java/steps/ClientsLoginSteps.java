@@ -33,23 +33,7 @@ public class ClientsLoginSteps {
     private ClientLoginPage clientLoginPage;
     private UserHeaderPage userHeaderPage;
 
-    // Removed @Before and @After annotations
-    // Page lifecycle is now managed by TestHooks only
-    public void setUp() {
-        // This method can be called manually if needed
-        // Page is available through BrowserManager.getCurrentPage()
-        page = BrowserManager.getCurrentPage();
-        if (page == null) {
-            throw new RuntimeException("No page available - TestHooks should have created one");
-        }
-        clientLoginPage = new ClientLoginPage(page);
-        userHeaderPage = new UserHeaderPage(page);
-    }
-
-    public void tearDown() {
-        // Page cleanup is handled by TestHooks only
-        // No action needed here
-    }
+    // Page lifecycle managed by TestHooks no need to use Before\After annotation in steps class.
 
     /**
      * Initialize page objects using current page from BrowserManager
@@ -109,12 +93,6 @@ public class ClientsLoginSteps {
         assertTrue(userHeaderPage.getHeaderAccountButtonLocator().isVisible(),"Account button should be visible after successful login");
     }
 
-//    @When("I enter invalid email {string}")
-//    @Step("Enter invalid email")
-//    public void iEnterInvalidEmail(String email) {
-//        clientLoginPage.enterInvalidEmail();
-//    }
-    
     @When("I enter invalid email")
     @Step("Enter invalid email")
     public void iEnterInvalidEmail() {
@@ -129,12 +107,6 @@ public class ClientsLoginSteps {
         clientLoginPage.enterValidEmail();
     }
 
-//    @When("I enter invalid password {string}")
-//    @Step("Enter invalid password")
-//    public void iEnterInvalidPassword(String password) {
-//        clientLoginPage.enterPassword(password);
-//    }
-    
     @When("I enter invalid password")
     @Step("Enter invalid password")
     public void iEnterInvalidPassword() {
@@ -208,12 +180,7 @@ public class ClientsLoginSteps {
         initializePageObjects();
         assertTrue(clientLoginPage.isEmptyPasswordErrorMessageDisplayed());
     }
-    
-//    @Then("I should be redirected to the homepage")
-//    @Step("Verify successful redirect to homepage")
-//    public void iShouldBeRedirectedToTheHomepage() {
-//        iRedirectToTheHomepage();
-//    }
+
     
     @Then("I should see the user dashboard")
     @Step("Verify user dashboard is displayed")

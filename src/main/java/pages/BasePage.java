@@ -12,10 +12,7 @@ public abstract class BasePage {
     protected final Page page;
     protected static final int DEFAULT_TIMEOUT = 5000;
     private static final Logger logger = LoggerFactory.getLogger(BasePage.class);
-//
-//    public BasePage(Page page) {
-//        this.page = page;
-//    }
+
 public BasePage(Page page) {
     if (page == null || page.isClosed()) {
         throw new IllegalStateException("No valid page available. Make sure createNewPage() is called in @Before.");
